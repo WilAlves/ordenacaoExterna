@@ -1,0 +1,71 @@
+#include<stdio.h>
+#include<time.h>
+#include<stdlib.h>
+#include<math.h>
+ 
+void merge(int p,int q,int r,int *v){
+	int i,j,k,*c;
+   c = malloc((r-p)*sizeof(int));
+	i = p; j = q; k = 0;
+
+	while(i < q && j < r){
+		if(v[i] <= v[j]){
+			c[k] = v[i];
+			k++;
+			i++;
+		}else{
+			c[k] = v[j];
+			k++;
+			j++;
+		}
+	}
+	while(i < q){
+		c[k] = v[i];
+		k++;
+		i++;
+	}
+	while(j < r){
+		c[k] = v[j];
+		k++;
+		j++;
+	}
+	for(i = p;i < r; i++)
+		v[i] = c[i-p];
+	free(c);
+}
+
+void mergesort(int p,int r, int *v){
+	int q;
+	if(p < r-1){ 
+		q = (p+r)/2;
+		mergesort(p,q,v);
+		mergesort(q,r,v);
+		merge(p,q,r,v);
+	}else return;
+}
+
+int main (){
+	int *v,n;
+	clock_t t1,t2;
+	float tempo[50],acm=0,desvio=0;
+	printf("\nDigite o tamanho da entrada: ");
+	scanf("%d",&n);
+	v=malloc(n*sizeof(int));
+	srand(time(NULL));
+	
+	for (int j=0;j<50;j++){
+		for (int i=0;i<n;i++) {
+			v[i]=rand()%65535;
+		}
+		t1=clock();	
+		mergesort(0,n,v);
+		t2=clock();
+		tempo[j]=(float)(t2-t1)/CLOCKS_PER_SEC;
+		acm+=tempo[j];
+	}
+	for (int j=0;j<50;j++) {
+		desvio+=pow(tempo[j]-(acm/50),2);
+	}
+	printf("Tempo medio: %f\n",acm/50);
+	printf("Desvio padrao: %f\n\n",sqrt(desvio/(50-1)));
+}
