@@ -3,5 +3,4 @@
 #include <stdint.h>
 #include <time.h>
 
-
-int32_t gerar_numero_aleatorio();
+int32_t escrever_arquivo(char *nome_arquivo, long tamanho_total);
