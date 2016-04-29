@@ -12,7 +12,12 @@ int32_t main(int32_t argc, char *argv[])
 	 * argv[2] -> tamanho_arquivo
 	 *
 	 */
-	if (argc > 2)
+	if (argc != 3)
+	{
+		printf("\nVc deve usar: %s <nome_arquivo> <tamanho_arquivo>\n", argv[0]);
+		return 1;
+	}
+	else
 	{
 		printf("\nCriando o arquivo: %s\n", argv[1]);
 		FILE *arquivo = fopen(argv[1], "rb");
@@ -23,11 +28,6 @@ int32_t main(int32_t argc, char *argv[])
 			return 0;
 		}
 		escrever_arquivo(argv[1], atol(argv[2]) * MB);
-	}
-	else
-	{
-		printf("\nVc deve usar: %s <nome_arquivo> <tamanho_arquivo>\n", argv[0]);
-		return 1;
 	}
 	return 0;
 }
