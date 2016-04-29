@@ -1,12 +1,9 @@
 #include "../lib/gerar_arquivo.h"
 
-#define GB 1000 * 1000 * 1000
-#define MB 1000 * 1000
-
 int32_t main(int32_t argc, char *argv[])
 {
 	/*
-	 * Argumentos passados por paramentos
+	 * Argumentos passados por parametros
 	 * argv[0] -> executavel
 	 * argv[1] -> nome_arquivo
 	 * argv[2] -> tamanho_arquivo
@@ -20,6 +17,8 @@ int32_t main(int32_t argc, char *argv[])
 	else
 	{
 		printf("\nCriando o arquivo: %s\n", argv[1]);
+		clock_t inicio, fim;
+		inicio = clock();
 		FILE *arquivo = fopen(argv[1], "rb");
 		if (arquivo != NULL)
 		{
@@ -28,6 +27,12 @@ int32_t main(int32_t argc, char *argv[])
 			return 0;
 		}
 		escrever_arquivo(argv[1], atol(argv[2]) * MB);
+		fim = clock();
+		double tempo_gasto = (double) (fim- inicio) / CLOCKS_PER_SEC;
+
+		printf("\nINPUT FILE: %s\n", argv[1]);
+		printf("\n%lf\n", tempo_gasto);
+
 	}
 	return 0;
 }
