@@ -30,8 +30,8 @@ int32_t main(int32_t argc, char *argv[])
 		fim = clock();
 		double tempo_gasto = (double) (fim- inicio) / CLOCKS_PER_SEC;
 
-		printf("\nINPUT FILE: %s\n", argv[1]);
-		printf("\n%lf\n", tempo_gasto);
+		printf("\nARQUIVO: %s\n", argv[1]);
+		printf("\nTEMPO GASTO: %lf\n", tempo_gasto);
 
 	}
 	return 0;
