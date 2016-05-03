@@ -41,6 +41,7 @@ int32_t main(int32_t argc, char *argv[])
 		printf("\nMEMORIA: %d", memoria);
 		printf("\nK: %d", K);
 		printf("\nTEMPO GASTO: %lf\n", tempo_gasto);
+		printf("\nARQUIVO SAIDA: %s\n", argv[2]);
 		fclose(file);
 	}
 	return 0;

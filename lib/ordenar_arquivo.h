@@ -10,6 +10,9 @@
 #define TRUE 1
 #define FALSE 0
 
+#define GB 1000 * 1000 * 1000
+#define MB 1000 * 1000
+
 typedef struct pilha_no {
     int32_t value;
     int32_t KFile_index;
