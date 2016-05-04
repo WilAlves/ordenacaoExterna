@@ -19,6 +19,10 @@ gcc -c ./src/ordenar_arquivo.c ./src/ordenar_arquivo_main.c
 
 gcc ./src/ordenar_arquivo.o ./src/ordenar_arquivo_main.o -o ordenar
 
+gcc -c ./src/ler_arquivo_gerado.c
+
+gcc ./src/ler_arquivo_gerado.o -o ler
+
 #executar: gerar arquivo
 Vc pode executar de duas formas também
 
@@ -36,3 +40,9 @@ make ordenar
 ou executar manualmente
 
 ./gerador entrada_arquivo saida_arquivo memoria K
+
+#transformar arquivos binarios gerados em txt
+
+./ler 1GB.bin > 1GB.txt
+./ler out1GB.bin > out1GB.txt
+
