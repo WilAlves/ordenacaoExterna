@@ -31,7 +31,7 @@ int32_t main(int32_t argc, char *argv[])
 		double tempo_gasto = (double) (fim- inicio) / CLOCKS_PER_SEC;
 
 		printf("\nARQUIVO: %s\n", argv[1]);
-		printf("\nTEMPO GASTO: %lf\n", tempo_gasto);
+		printf("\nTEMPO GASTO: %lf\n", tempo_gasto * 1000);
 
 	}
 	return 0;
