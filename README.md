@@ -1,8 +1,20 @@
+
 # ordenacaoExterna
 Implementação de um algoritmo de ordenção externa por intercalação (Merge-Sort) multivias para ordenar um arquivo de dados fornecido como entrada.
 
 
 # Compilar os arquivos
+O codigo roda em qualquer plataforma:
+
+-> Linux
+	* GCC
+	* Todos os passos podem ser feito pelo terminal
+
+-> Windows
+	* Qualquer IDE
+	* Qualquer editor modo texto
+	* GCC
+
 Vc pode compilar os arquivos de duas formas
 
 digitando apenas:
@@ -24,25 +36,26 @@ gcc -c ./src/ler_arquivo_gerado.c
 gcc ./src/ler_arquivo_gerado.o -o ler
 
 #executar: gerar arquivo
-Vc pode executar de duas formas também
 
 make gerar
 
-ou executar manualmente
+ou
 
 ./gerador nome_arquivo tamanho_arquivo
 
 #executar: ordenar arquivo
-Vc pode executar de duas formas também
 
-make ordenar
+make order
 
-ou executar manualmente
+ou
 
-./gerador entrada_arquivo saida_arquivo memoria K
+./ordenar entrada_arquivo saida_arquivo memoria K
 
 #transformar arquivos binarios gerados em txt
 
+make ler_ordenado ou make ler_desordenado
+
+ou
+
 ./ler 1GB.bin > 1GB.txt
 ./ler out1GB.bin > out1GB.txt
-
