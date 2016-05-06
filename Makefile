@@ -5,23 +5,19 @@ compilar_objeto:
 	gcc -c ./src/ordenar_arquivo_main.c ./src/ordenar_arquivo.c
 	gcc -c ./src/ler_arquivo_gerado.c
 
-
 compilar_binario:
 	gcc gerar_arquivo_main.o gerar_arquivo.o -o gerador -lm
 	gcc ordenar_arquivo_main.o ordenar_arquivo.o -o ordenar -lm
-	gcc ./src/ler_arquivo_gerado.o -o ler
+	gcc ler_arquivo_gerado.o -o ler -lm
 
 gerar:
 	./gerador 1GB.bin 1000
-#	./gerador 6GB.bin 6000
 
-ordenar:
-	./ordenar 1GB.bin out1GB.bin 100 10
-#	./ordenar 6GB.bin out6GB.bin 600 10
+order:
+	./ordenar 1GB.bin out_1GB.bin 100 10
 
-ler:
-	./ler 1GB.bin > 1GB.txt
-	./ler out1GB.bin > out1GB.txt
+ler_ordenado:
+	./ler out_1GB.bin > ordenado.txt
 
-excluir:
-	rm -f *.o *.out *.bin
+ler_desordenado:
+	./ler 1GB.bin > desordenado.txt
